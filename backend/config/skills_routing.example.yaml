@@ -1,0 +1,32 @@
+# Neo 技能自动挂载规则示例。复制到 data/skills_routing.yaml（或设置 SKILLS_ROUTING_RULES_PATH）后生效。
+# 单条规则内 match 子句为 AND：列出的每一类条件均需满足（每类内部为 OR）。
+# 合并顺序：先按文件内 rules 顺序收集 skill_id，再追加请求体中的 skill_ids（去重）。
+
+version: 1
+
+rules:
+  - id: ransom_case_name
+    match:
+      case_name_substrings:
+        - 勒索
+        - ransom
+        - Ransomware
+    skill_ids:
+      - dfir-report-checklist
+
+  - id: user_asks_forensic
+    match:
+      user_message_substrings:
+        - 日志分析
+        - 取证
+    skill_ids:
+      - dfir-log-triage
+
+  # 需在案件 meta 中写入 tags（如 API 更新 case）："tags": ["apt"]
+  - id: apt_tagged_case
+    match:
+      case_meta_tags_any:
+        - apt
+        - APT
+    skill_ids:
+      - dfir-report-checklist

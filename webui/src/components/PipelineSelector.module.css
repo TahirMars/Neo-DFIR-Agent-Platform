@@ -1,0 +1,36 @@
+.wrap {
+  margin: 0;
+}
+
+.label,
+.labelCompact {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.labelCompact {
+  display: block;
+}
+
+.select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg-card-alt);
+  color: var(--text-primary);
+  font-size: 14px;
+  min-width: 200px;
+}
+
+.select:focus {
+  outline: none;
+  border-color: rgba(79, 70, 229, 0.6);
+}
+
+.select:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}

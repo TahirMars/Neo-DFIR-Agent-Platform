@@ -1,0 +1,127 @@
+/* 全局样式（参考 Neo 前端 UI 设计文档） */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: dark;
+  color: #e7eaf3;
+  background-color: #0b0f19;
+  /* 暗色主题变量（默认） */
+  --bg-page: #0b0f19;
+  --bg-sidebar: linear-gradient(180deg, #0d1326, #0b0f19);
+  --bg-main: #0b0f19;
+  --bg-card: rgba(255, 255, 255, 0.03);
+  --bg-card-alt: rgba(255, 255, 255, 0.02);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.12);
+  --text-primary: #e7eaf3;
+  --text-secondary: rgba(255, 255, 255, 0.87);
+  --text-muted: rgba(255, 255, 255, 0.65);
+  --text-dim: rgba(255, 255, 255, 0.6);
+  --text-faint: rgba(255, 255, 255, 0.4);
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-muted: rgba(79, 70, 229, 0.15);
+  --accent-border: rgba(79, 70, 229, 0.5);
+  --link-accent: #818cf8;
+  --link-accent-hover: #a5b4fc;
+  --input-bg: rgba(255, 255, 255, 0.06);
+  --input-border: rgba(255, 255, 255, 0.1);
+  --input-placeholder: rgba(255, 255, 255, 0.4);
+  --code-bg: rgba(0, 0, 0, 0.2);
+  --bg-code: #1a1d24;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  color: #1e293b;
+  background-color: #f1f5f9;
+  --bg-page: #f1f5f9;
+  --bg-sidebar: #ffffff;
+  --bg-main: #f1f5f9;
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --bg-card-alt: rgba(248, 250, 252, 0.95);
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.12);
+  --text-primary: #1e293b;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --text-dim: #64748b;
+  --text-faint: #94a3b8;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-muted: rgba(79, 70, 229, 0.12);
+  --accent-border: rgba(79, 70, 229, 0.4);
+  --link-accent: #4f46e5;
+  --link-accent-hover: #6366f1;
+  --input-bg: rgba(0, 0, 0, 0.04);
+  --input-border: rgba(0, 0, 0, 0.1);
+  --input-placeholder: rgba(0, 0, 0, 0.4);
+  --code-bg: rgba(0, 0, 0, 0.06);
+  --bg-code: #f1f5f9;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+[data-theme="light"] a {
+  color: #4f46e5;
+}
+[data-theme="light"] a:hover {
+  color: #646cff;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2em;
+  line-height: 1.2;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+button:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+[data-theme="light"] button {
+  background-color: rgba(0, 0, 0, 0.04);
+  color: var(--text-primary);
+}
+[data-theme="light"] button:hover {
+  border-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.08);
+}
+button:focus,
+button:focus-visible {
+  outline: 2px solid rgba(79, 70, 229, 0.6);
+}
+
+#root {
+  min-height: 100vh;
+  background: var(--bg-page);
+}

@@ -1,0 +1,20 @@
+/**
+ * 离屏宿主：mermaid.render 第三参必须挂在此节点上，否则会向 document.body 注入临时 div/SVG，
+ * 异常时残留会形成页面底部大块深色条。
+ */
+.renderHost {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  border: 0;
+  pointer-events: none;
+  visibility: hidden;
+  white-space: nowrap;
+}

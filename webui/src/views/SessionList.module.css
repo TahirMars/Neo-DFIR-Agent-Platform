@@ -1,0 +1,219 @@
+.page {
+  max-width: 800px;
+  overflow-y: auto;
+}
+
+.header {
+  margin-bottom: 24px;
+}
+
+.back {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #818cf8;
+  text-decoration: none;
+  margin-bottom: 12px;
+  transition: color 0.2s;
+}
+
+.back:hover {
+  color: #a5b4fc;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.loading {
+  color: var(--text-secondary);
+  margin: 24px 0;
+}
+
+.actions {
+  margin-bottom: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.selectAllLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  user-select: none;
+}
+
+.selectAllLabel input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: rgba(79, 70, 229, 0.85);
+}
+
+.batchDeleteBtn {
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  border: 1px solid rgba(215, 58, 73, 0.5);
+  background: rgba(215, 58, 73, 0.15);
+  color: #d73a49;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.batchDeleteBtn:hover:not(:disabled) {
+  background: rgba(215, 58, 73, 0.25);
+  border-color: #d73a49;
+}
+
+.batchDeleteBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.primaryBtn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  background: #4f46e5;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.primaryBtn:hover:not(:disabled) {
+  background: #4338ca;
+}
+
+.primaryBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.sessionList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sessionItem {
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.checkboxCol {
+  flex-shrink: 0;
+}
+
+.checkboxCol input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: rgba(79, 70, 229, 0.85);
+}
+
+.sessionItem:hover {
+  background: var(--bg-card-alt);
+  border-color: var(--border-strong);
+}
+
+.sessionInfo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.sessionId {
+  font-family: ui-monospace, monospace;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.sessionStatus {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.sessionStatus[data-status='completed'] {
+  background: rgba(74, 222, 128, 0.2);
+  color: #4ade80;
+}
+
+.sessionStatus[data-status='running'] {
+  background: rgba(79, 70, 229, 0.2);
+  color: #818cf8;
+}
+
+.sessionStatus[data-status='failed'] {
+  background: rgba(215, 58, 73, 0.2);
+  color: #d73a49;
+}
+
+.sessionMeta {
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+.sessionTime {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.sessionActions {
+  flex-shrink: 0;
+  display: flex;
+  gap: 12px;
+}
+
+.link {
+  color: #646cff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.link:hover {
+  color: #535bf2;
+}
+
+.empty {
+  padding: 32px;
+  text-align: center;
+  color: var(--text-dim);
+  border-radius: 12px;
+  border: 1px dashed var(--border);
+}

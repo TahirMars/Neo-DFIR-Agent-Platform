@@ -1,0 +1,378 @@
+/* 用户管理模态框 —— 支持暗色 / 亮色主题 */
+
+/* ── 主题变量 ── */
+:root {
+  --um-overlay-bg: rgba(0, 0, 0, 0.6);
+  --um-modal-bg: linear-gradient(180deg, #0d1326, #0b0f19);
+  --um-modal-border: rgba(255, 255, 255, 0.1);
+  --um-modal-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --um-header-bg: #374151;
+  --um-header-border: rgba(255, 255, 255, 0.1);
+  --um-header-text: #fff;
+  --um-close-bg: rgba(255, 255, 255, 0.1);
+  --um-close-border: rgba(255, 255, 255, 0.2);
+  --um-close-text: #fff;
+  --um-close-hover-bg: rgba(255, 255, 255, 0.2);
+  --um-body-bg: #0b0f19;
+  --um-body-text: rgba(255, 255, 255, 0.6);
+  --um-table-bg: rgba(13, 19, 38, 0.5);
+  --um-table-border: rgba(255, 255, 255, 0.08);
+  --um-th-bg: rgba(55, 65, 81, 0.6);
+  --um-th-text: #e7eaf3;
+  --um-td-text: #c7cad6;
+  --um-td-border: rgba(255, 255, 255, 0.06);
+  --um-row-hover: rgba(79, 70, 229, 0.08);
+  --um-select-bg: rgba(13, 19, 38, 0.8);
+  --um-select-border: rgba(255, 255, 255, 0.15);
+  --um-select-text: #e7eaf3;
+  --um-checkbox-text: #e7eaf3;
+  --um-btn-secondary-bg: rgba(255, 255, 255, 0.1);
+  --um-btn-secondary-border: rgba(255, 255, 255, 0.15);
+  --um-btn-secondary-text: #e7eaf3;
+  --um-btn-secondary-hover: rgba(255, 255, 255, 0.15);
+  --um-password-row-bg: rgba(102, 126, 234, 0.05);
+  --um-password-bg: rgba(13, 19, 38, 0.5);
+  --um-password-border: rgba(255, 255, 255, 0.08);
+  --um-password-text: #e7eaf3;
+  --um-input-bg: rgba(13, 19, 38, 0.8);
+  --um-input-border: rgba(255, 255, 255, 0.15);
+  --um-input-text: #e7eaf3;
+  --um-input-placeholder: rgba(231, 234, 243, 0.4);
+  --um-error-bg: rgba(215, 58, 73, 0.3);
+  --um-error-text: #fca5a5;
+  --um-error-border: rgba(215, 58, 73, 0.3);
+}
+
+[data-theme="light"] {
+  --um-overlay-bg: rgba(0, 0, 0, 0.35);
+  --um-modal-bg: linear-gradient(180deg, #ffffff, #f8fafc);
+  --um-modal-border: rgba(0, 0, 0, 0.1);
+  --um-modal-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  --um-header-bg: #f1f5f9;
+  --um-header-border: rgba(0, 0, 0, 0.08);
+  --um-header-text: #1e293b;
+  --um-close-bg: rgba(0, 0, 0, 0.05);
+  --um-close-border: rgba(0, 0, 0, 0.1);
+  --um-close-text: #475569;
+  --um-close-hover-bg: rgba(0, 0, 0, 0.1);
+  --um-body-bg: #ffffff;
+  --um-body-text: #64748b;
+  --um-table-bg: #ffffff;
+  --um-table-border: rgba(0, 0, 0, 0.08);
+  --um-th-bg: #f8fafc;
+  --um-th-text: #334155;
+  --um-td-text: #475569;
+  --um-td-border: rgba(0, 0, 0, 0.06);
+  --um-row-hover: rgba(79, 70, 229, 0.04);
+  --um-select-bg: #ffffff;
+  --um-select-border: rgba(0, 0, 0, 0.12);
+  --um-select-text: #1e293b;
+  --um-checkbox-text: #1e293b;
+  --um-btn-secondary-bg: rgba(0, 0, 0, 0.04);
+  --um-btn-secondary-border: rgba(0, 0, 0, 0.12);
+  --um-btn-secondary-text: #334155;
+  --um-btn-secondary-hover: rgba(0, 0, 0, 0.08);
+  --um-password-row-bg: rgba(79, 70, 229, 0.03);
+  --um-password-bg: #f8fafc;
+  --um-password-border: rgba(0, 0, 0, 0.08);
+  --um-password-text: #1e293b;
+  --um-input-bg: #ffffff;
+  --um-input-border: rgba(0, 0, 0, 0.12);
+  --um-input-text: #1e293b;
+  --um-input-placeholder: rgba(0, 0, 0, 0.35);
+  --um-error-bg: rgba(215, 58, 73, 0.1);
+  --um-error-text: #dc2626;
+  --um-error-border: rgba(215, 58, 73, 0.2);
+}
+
+/* ── 布局 ── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--um-overlay-bg);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+}
+
+.modal {
+  background: var(--um-modal-bg);
+  border-radius: 16px;
+  width: 90%;
+  max-width: 1000px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--um-modal-shadow);
+  border: 1px solid var(--um-modal-border);
+  overflow: hidden;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ── 头部 ── */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  background: var(--um-header-bg);
+  border-bottom: 1px solid var(--um-header-border);
+}
+
+.headerTitle {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--um-header-text);
+}
+
+.closeBtn {
+  background: var(--um-close-bg);
+  border: 1px solid var(--um-close-border);
+  font-size: 24px;
+  color: var(--um-close-text);
+  cursor: pointer;
+  padding: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.closeBtn:hover {
+  background: var(--um-close-hover-bg);
+  transform: rotate(90deg);
+}
+
+/* ── 错误 ── */
+.errorBanner {
+  background: var(--um-error-bg);
+  color: var(--um-error-text);
+  padding: 12px 32px;
+  font-size: 14px;
+  border-bottom: 1px solid var(--um-error-border);
+}
+
+/* ── 主体 ── */
+.body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 32px;
+  background: var(--um-body-bg);
+}
+
+.loading {
+  text-align: center;
+  padding: 48px;
+  color: var(--um-body-text);
+  font-size: 15px;
+}
+
+/* ── 表格 ── */
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 14px;
+  background: var(--um-table-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--um-table-border);
+}
+
+.table th,
+.table td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--um-td-border);
+}
+
+.table th {
+  background: var(--um-th-bg);
+  font-weight: 600;
+  color: var(--um-th-text);
+  font-size: 13px;
+}
+
+.table tbody tr:hover {
+  background: var(--um-row-hover);
+}
+
+.table td {
+  color: var(--um-td-text);
+}
+
+/* ── 角色 / 状态徽章 ── */
+.roleAdmin {
+  display: inline-flex;
+  padding: 6px 14px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  color: #3d2800;
+}
+
+.roleMember {
+  display: inline-flex;
+  padding: 6px 14px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #4f46e5;
+  color: #fff;
+}
+
+.statusOn {
+  display: inline-flex;
+  padding: 6px 14px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #fff;
+}
+
+.statusOff {
+  display: inline-flex;
+  padding: 6px 14px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: #fff;
+}
+
+/* ── 表单控件 ── */
+.roleSelect {
+  padding: 6px 12px;
+  border: 1px solid var(--um-select-border);
+  border-radius: 8px;
+  font-size: 13px;
+  background: var(--um-select-bg);
+  color: var(--um-select-text);
+  cursor: pointer;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: var(--um-checkbox-text);
+  font-weight: 500;
+}
+
+.checkboxLabel input {
+  width: 18px;
+  height: 18px;
+  accent-color: #4f46e5;
+}
+
+/* ── 操作按钮 ── */
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  padding: 8px 16px;
+  font-size: 13px;
+  border-radius: 8px;
+  border: none;
+  background: #4f46e5;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.btnPrimary:hover {
+  background: #4338ca;
+}
+
+.btnSecondary {
+  padding: 8px 16px;
+  font-size: 13px;
+  border-radius: 8px;
+  border: 1px solid var(--um-btn-secondary-border);
+  background: var(--um-btn-secondary-bg);
+  color: var(--um-btn-secondary-text);
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btnSecondary:hover {
+  background: var(--um-btn-secondary-hover);
+}
+
+.btnLink {
+  padding: 8px 16px;
+  font-size: 13px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: #646cff;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.btnLink:hover {
+  color: #535bf2;
+  text-decoration: underline;
+}
+
+/* ── 密码编辑行 ── */
+.passwordRow {
+  background: var(--um-password-row-bg) !important;
+}
+
+.passwordSection {
+  padding: 16px;
+  border-radius: 8px;
+  background: var(--um-password-bg);
+  border: 1px solid var(--um-password-border);
+}
+
+.passwordSection label {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--um-password-text);
+}
+
+.passwordInput {
+  padding: 10px 14px;
+  border: 1px solid var(--um-input-border);
+  border-radius: 8px;
+  font-size: 14px;
+  background: var(--um-input-bg);
+  color: var(--um-input-text);
+  max-width: 280px;
+}
+
+.passwordInput:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+.passwordInput::placeholder {
+  color: var(--um-input-placeholder);
+}

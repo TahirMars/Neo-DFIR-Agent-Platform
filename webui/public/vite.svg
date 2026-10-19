@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="DFIR">
+  <title>DFIR</title>
+  <defs>
+    <linearGradient id="dfirG" x1="4" y1="0" x2="60" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="40%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#1E3A8A"/>
+    </linearGradient>
+  </defs>
+  <!-- icon mark centered (from logo, scaled into 64x64) -->
+  <g transform="translate(3,4) scale(1.034)">
+    <g fill="url(#dfirG)">
+      <rect x="0.12" y="15.43" width="2.15" height="2.15" rx="1.07" fill-opacity="0.83"/>
+      <rect x="3.05" y="14.26" width="2.15" height="4.48" rx="1.07" fill-opacity="0.85"/>
+      <rect x="5.98" y="12.48" width="2.15" height="8.03" rx="1.07" fill-opacity="0.86"/>
+      <rect x="8.90" y="10.36" width="2.15" height="12.29" rx="1.07" fill-opacity="0.84"/>
+      <rect x="11.83" y="6.85" width="2.15" height="19.30" rx="1.07" fill-opacity="0.84"/>
+      <rect x="14.76" y="9.78" width="2.15" height="13.44" rx="1.07" fill-opacity="0.86"/>
+      <rect x="17.68" y="11.49" width="2.15" height="10.02" rx="1.07" fill-opacity="0.87"/>
+      <rect x="20.61" y="7.80" width="2.15" height="17.41" rx="1.07" fill-opacity="0.88"/>
+      <rect x="23.54" y="3.89" width="2.15" height="25.22" rx="1.07" fill-opacity="0.87"/>
+      <rect x="26.46" y="0.50" width="2.15" height="32.00" rx="1.07" fill-opacity="0.89"/>
+      <rect x="29.39" y="3.94" width="2.15" height="25.12" rx="1.07" fill-opacity="0.91"/>
+      <rect x="32.31" y="8.05" width="2.15" height="16.90" rx="1.07" fill-opacity="0.93"/>
+      <rect x="35.24" y="11.70" width="2.15" height="9.60" rx="1.07" fill-opacity="0.94"/>
+      <rect x="38.17" y="9.41" width="2.15" height="14.18" rx="1.07" fill-opacity="0.96"/>
+      <rect x="41.09" y="5.72" width="2.15" height="21.57" rx="1.07" fill-opacity="1.00"/>
+      <rect x="44.02" y="9.36" width="2.15" height="14.27" rx="1.07" fill-opacity="1.00"/>
+      <rect x="46.95" y="11.12" width="2.15" height="10.75" rx="1.07" fill-opacity="1.00"/>
+      <rect x="49.87" y="13.06" width="2.15" height="6.88" rx="1.07" fill-opacity="1.00"/>
+      <rect x="52.80" y="14.63" width="2.15" height="3.74" rx="1.07" fill-opacity="1.00"/>
+      <rect x="55.72" y="15.43" width="2.15" height="2.15" rx="1.07" fill-opacity="0.99"/>
+    </g>
+    <g stroke="url(#dfirG)" fill="url(#dfirG)">
+      <line x1="27.3" y1="44.8" x2="51.8" y2="42.4" stroke-width="1.45" stroke-linecap="round"/>
+      <line x1="27.3" y1="44.8" x2="12.3" y2="50.9" stroke-width="1.45" stroke-linecap="round"/>
+      <line x1="27.3" y1="44.8" x2="37.0" y2="53.9" stroke-width="1.45" stroke-linecap="round"/>
+      <line x1="27.3" y1="44.8" x2="38.4" y2="38.1" stroke-width="1.45" stroke-linecap="round"/>
+      <line x1="27.3" y1="44.8" x2="13.8" y2="38.2" stroke-width="1.45" stroke-linecap="round"/>
+      <line x1="27.3" y1="44.8" x2="6.2" y2="43.9" stroke-width="1.45" stroke-linecap="round"/>
+      <line x1="27.3" y1="44.8" x2="44.0" y2="48.4" stroke-width="1.45" stroke-linecap="round"/>
+      <line x1="51.8" y1="42.4" x2="38.4" y2="38.1" stroke-width="1.35" stroke-linecap="round"/>
+      <circle cx="27.3" cy="44.8" r="3.8" stroke="none"/>
+      <circle cx="51.8" cy="42.4" r="2.15" stroke="none"/>
+      <circle cx="12.3" cy="50.9" r="2.05" stroke="none"/>
+      <circle cx="37.0" cy="53.9" r="2.15" stroke="none"/>
+      <circle cx="38.4" cy="38.1" r="2.0" stroke="none"/>
+      <circle cx="13.8" cy="38.2" r="2.0" stroke="none"/>
+      <circle cx="6.2" cy="43.9" r="2.0" stroke="none"/>
+      <circle cx="44.0" cy="48.4" r="1.95" stroke="none"/>
+    </g>
+  </g>
+</svg>

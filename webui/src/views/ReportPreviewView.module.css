@@ -1,0 +1,158 @@
+.page {
+  max-width: 900px;
+  overflow-y: auto;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.back {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--link-accent);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.back:hover {
+  color: var(--link-accent-hover);
+}
+
+.breadcrumb {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.editBtn,
+.saveBtn,
+.cancelBtn,
+.downloadBtn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.editBtn {
+  border: 1px solid var(--accent-border);
+  background: var(--accent-muted);
+  color: var(--link-accent);
+}
+
+.editBtn:hover {
+  background: var(--accent-muted);
+  opacity: 0.9;
+}
+
+.saveBtn {
+  border: none;
+  background: var(--accent);
+  color: #fff;
+}
+
+.saveBtn:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.cancelBtn {
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.cancelBtn:hover {
+  background: var(--bg-card);
+}
+
+.downloadBtn {
+  border: 1px solid var(--accent-border);
+  background: var(--accent-muted);
+  color: var(--link-accent);
+}
+
+.downloadBtn:hover:not(:disabled) {
+  background: var(--accent-muted);
+  opacity: 0.9;
+}
+
+.downloadBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.article {
+  padding: 24px 0;
+}
+
+.reportTitle {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 20px 0;
+}
+
+.editArea {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.titleInput {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  color: var(--text-primary);
+  font-size: 16px;
+}
+
+.titleInput:focus {
+  outline: none;
+  border-color: var(--accent-border);
+}
+
+.contentTextarea {
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-family: ui-monospace, monospace;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.contentTextarea:focus {
+  outline: none;
+  border-color: var(--accent-border);
+}
+
+/* 报告页额外排版微调，基础样式由 MarkdownContent.module.css 提供 */
+.markdown {
+  line-height: 1.8;
+}
+
+.loading {
+  color: var(--text-secondary);
+  margin: 24px 0;
+}
+
+.error {
+  color: #d73a49;
+  margin: 24px 0;
+}

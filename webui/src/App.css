@@ -1,0 +1,8 @@
+/* Neo 前端全局样式（参考前端 UI 设计文档） */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #0b0f19;
+}
